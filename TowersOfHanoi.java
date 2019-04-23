@@ -30,6 +30,9 @@ public class TowersOfHanoi
     }
 
     // This function shows the steps to solving the tower of hanoi
+    // fromPole is the pole from which the disc moved started
+    // toPole is the destination of said disc
+    // withPole is the pole not being used at the moment
     public static void moveTower(int numDiscs, String fromPole, String toPole, String withPole)
     {
         if (numDiscs >= 1)
@@ -39,8 +42,9 @@ public class TowersOfHanoi
             moveTower(numDiscs-1,fromPole,withPole,toPole);
             System.out.print("Moving disc from " + fromPole + " to " + toPole + "\n");
 
-            // Switch fromPole and withPole
-            // This means that you are placing the next disc on the third pole
+            // Switch fromPole and withPole and toPole
+            // This means that you are taking the disc on the withPole and moving toPole, and
+            // the fromPole is not being used
             moveTower(numDiscs-1,withPole,toPole,fromPole);
         }
     }
